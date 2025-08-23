@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 15px 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 5px #000;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background: #00c6ff;
+  color: #000;
+  transform: translateY(-4px) scale(1.05) rotateX(15deg);
+  box-shadow: 0 6px 15px rgba(0, 198, 255, 0.6);
+}
+
+/* Hamburger Button */
+.menu-toggle {
+  display: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* show ☰ on small screens */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: #203a43;
+    flex-direction: column;
+    width: 220px;
+    padding: 20px;
+    display: none; /* hidden by default */
+    border-radius: 0 0 0 12px;
+  }
+
+  .nav-links.open {
+    display: flex; /* show when toggled */
+  }
+}
