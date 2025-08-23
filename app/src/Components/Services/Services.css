@@ -1,0 +1,122 @@
+.services {
+  min-height: 100vh;
+  padding: 60px 10%;
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: white;
+  text-align: center;
+}
+
+.services-title {
+  font-size: 2.8rem;
+  margin-bottom: 40px;
+  color: #00eaff;
+  padding: 50px;
+  text-shadow: 0 0 15px #00eaff, 0 0 30px #00c6ff;
+}
+
+/* Container */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+/* Card */
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+/* Icon */
+.service-card .icon {
+  font-size: 3rem;
+  color: #00eaff;
+  margin-bottom: 15px;
+  animation: glow 2s infinite alternate;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color:black;
+}
+
+.service-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Hover 3D Effect */
+.service-card:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 198, 255, 0.6);
+}
+
+/* Glowing Border Animation */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    120deg,
+    #00eaff,
+    #00c6ff,
+    #0072ff,
+    #00eaff
+  );
+  background-size: 300% 300%;
+  border-radius: 15px;
+  z-index: -1;
+  animation: borderGlow 5s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #00eaff, 0 0 10px #00c6ff;
+  }
+  to {
+    text-shadow: 0 0 15px #00eaff, 0 0 30px #00c6ff;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 2.2rem;
+  }
+
+  .service-card {
+    padding: 20px;
+  }
+
+  .service-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .service-card p {
+    font-size: 0.95rem;
+  }
+}

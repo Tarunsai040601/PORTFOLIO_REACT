@@ -22,6 +22,7 @@
   flex: 1;
   display: flex;
   justify-content: center;
+  padding: 60px;
 }
 
 .about-image img {

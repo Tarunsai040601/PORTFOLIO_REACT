@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaFileAlt, FaUser } from "react-icons/fa";
 import "./Home.css";
-import profile from "../../assets/images/profile.jpg";
+import profile_02 from "../../assets/images/profile_02.png";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       <div className="home-content">
         {/* Left - Profile Image */}
         <div className="home-image">
-          <img src={profile} alt="profile" />
+          <img src={profile_02} alt="profile" />
         </div>
 
         {/* Right - Info */}
@@ -25,9 +25,9 @@ const Home = () => {
           </p>
 
           <div className="home-buttons">
-            <Link to="/github" className="btn"><FaGithub /> GitHub</Link>
-            <Link to="/linkedin" className="btn"><FaLinkedin /> LinkedIn</Link>
-            <Link to="/resume" className="btn"><FaFileAlt /> View Resume</Link>
+            <Link to="https://github.com/Madhari-tarunsai" className="btn" target="_blank"><FaGithub /> GitHub</Link>
+            <Link to="https://www.linkedin.com/in/tarunsai04/" className="btn" target="_blank"><FaLinkedin /> LinkedIn</Link>
+            <Link to="https://docs.google.com/document/d/1n_vSu66L7op5Ex4gu2kIeXpNHGTc1egU/edit?usp=sharing&ouid=118110717498746602883&rtpof=true&sd=true" className="btn" target="_blank"><FaFileAlt /> View Resume</Link>
           </div>
         </div>
       </div>
