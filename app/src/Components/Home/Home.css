@@ -3,100 +3,131 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 10%;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: white;
+  padding: calc(var(--nav-height) + 40px) clamp(16px, 5vw, 80px) 60px;
+  background: var(--gradient-main);
+  color: var(--color-text);
+  position: relative;
+  z-index: 1;
 }
 
-/* Flex container */
 .home-content {
   display: flex;
-  align-items: center;   /* <-- vertical align fix */
+  align-items: center;
   justify-content: center;
-  gap: 60px;
+  gap: clamp(30px, 6vw, 60px);
   flex-wrap: wrap;
   width: 100%;
   max-width: 1100px;
+  perspective: 1200px;
 }
 
-/* Image */
 .home-image {
   flex: 1;
   display: flex;
   justify-content: center;
-  padding: 50px;
+  min-width: 240px;
+}
+
+.profile-ring {
+  position: relative;
+  width: clamp(200px, 30vw, 300px);
+  height: clamp(200px, 30vw, 300px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  animation: float3d 6s ease-in-out infinite;
+}
+
+.profile-ring::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: var(--radius-full);
+  background: var(--gradient-accent);
+  background-size: 300% 300%;
+  animation: borderGlow 4s linear infinite, spin3d 8s linear infinite;
+  z-index: 0;
+}
+
+.profile-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: var(--radius-full);
+  background: var(--bg-dark);
+  z-index: 1;
 }
 
 .home-image img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  border: 5px solid #00c6ff;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
   object-fit: cover;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-  transition: transform 0.4s ease;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
 }
 
-.home-image img:hover {
-  transform: rotateY(15deg) rotateX(10deg) scale(1.05);
+.profile-ring:hover img {
+  transform: rotateY(15deg) rotateX(10deg) scale(1.05) translateZ(20px);
 }
 
-/* Text */
 .home-text {
   flex: 1;
-  max-width: 500px;
+  max-width: 520px;
+  min-width: 280px;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .home-text h1 {
-  font-size: 2.5rem;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
   margin-bottom: 10px;
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
+  font-weight: 700;
+}
+
+.home-text h1 .icon {
+  color: var(--color-secondary);
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.6));
 }
 
 .home-text h1 span {
-  color: #00c6ff;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .home-text h2 {
-  font-size: 1.8rem;
-  color: #eee;
-  margin-bottom: 15px;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--color-muted);
+  margin-bottom: 16px;
+  font-weight: 500;
 }
 
 .home-text p {
-  font-size: 1.1rem;
-  margin-bottom: 25px;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  margin-bottom: 28px;
+  line-height: 1.7;
+  color: var(--color-muted);
 }
 
-/* Buttons */
+.home-text p strong {
+  color: var(--color-secondary);
+}
+
 .home-buttons {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
-.btn {
-  background: #00c6ff;
-  color: #000;
-  padding: 10px 20px;
-  border-radius: 12px;
-  font-weight: bold;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: translateY(-5px) scale(1.05);
-  background: #00eaff;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   .home-content {
     flex-direction: column;
@@ -105,15 +136,23 @@
 
   .home-text h1 {
     justify-content: center;
-    font-size: 2rem;
   }
 
-  .home-text h2 {
-    font-size: 1.4rem;
+  .home-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-buttons {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 
-  .home-image img {
-    width: 200px;
-    height: 200px;
+  .home-buttons .btn {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
   }
 }

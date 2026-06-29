@@ -11,7 +11,9 @@ const About = () => {
         
         {/* Left - Image */}
         <div className="about-image">
-          <img src={profile_01} alt="Profile" />
+          <div className="profile-wrap">
+            <img src={profile_01} alt="Profile" />
+          </div>
         </div>
 
         {/* Right - Info */}

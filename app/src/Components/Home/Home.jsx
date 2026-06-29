@@ -8,26 +8,36 @@ const Home = () => {
   return (
     <section id="home" className="home">
       <div className="home-content">
-        {/* Left - Profile Image */}
         <div className="home-image">
-          <img src={profile_02} alt="profile" />
+          <div className="profile-ring">
+            <img src={profile_02} alt="Tarunsai profile" />
+          </div>
         </div>
 
-        {/* Right - Info */}
         <div className="home-text">
           <h1>
             <FaUser className="icon" /> Hello, I'm <span>Tarunsai</span>
           </h1>
           <h2>Web Developer</h2>
           <p>
-            Passionate about building <strong>modern, interactive, and responsive</strong> 
+            Passionate about building <strong>modern, interactive, and responsive</strong>
             web applications with 3D UI effects and smooth animations.
           </p>
 
           <div className="home-buttons">
-            <Link to="https://github.com/Madhari-tarunsai" className="btn" target="_blank"><FaGithub /> GitHub</Link>
-            <Link to="https://www.linkedin.com/in/tarunsai04/" className="btn" target="_blank"><FaLinkedin /> LinkedIn</Link>
-            <Link to="https://docs.google.com/document/d/1n_vSu66L7op5Ex4gu2kIeXpNHGTc1egU/edit?usp=sharing&ouid=118110717498746602883&rtpof=true&sd=true" className="btn" target="_blank"><FaFileAlt /> View Resume</Link>
+            <Link to="https://github.com/Madhari-tarunsai" className="btn btn-primary" target="_blank">
+              <FaGithub /> GitHub
+            </Link>
+            <Link to="https://www.linkedin.com/in/tarunsai04/" className="btn btn-primary" target="_blank">
+              <FaLinkedin /> LinkedIn
+            </Link>
+            <Link
+              to="https://drive.google.com/file/d/13AY-_x5V_RAu--F6MTiyzLq9bKP6KeeN/view?usp=sharing"
+              className="btn btn-primary"
+              target="_blank"
+            >
+              <FaFileAlt /> View Resume
+            </Link>
           </div>
         </div>
       </div>
