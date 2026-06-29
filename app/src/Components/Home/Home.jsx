@@ -25,7 +25,7 @@ const Home = () => {
           </p>
 
           <div className="home-buttons">
-            <Link to="https://github.com/Madhari-tarunsai" className="btn btn-primary" target="_blank">
+            <Link to="https://github.com/Tarunsai040601" className="btn btn-primary" target="_blank">
               <FaGithub /> GitHub
             </Link>
             <Link to="https://www.linkedin.com/in/tarunsai04/" className="btn btn-primary" target="_blank">
